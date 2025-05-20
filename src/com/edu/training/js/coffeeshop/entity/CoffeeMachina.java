@@ -25,9 +25,17 @@ public class CoffeeMachina {
 
 	public Drink makeDrink(CoffeeType coffee) {
 
-		Drink drink = new Drink(coffee);
-		return drink;
+		if (checkEnoughIngredients(coffee)) {
+			Drink drink = new Drink(coffee);
+			consumptionOfWater(coffee.getWater());
+			consumptionOfCoffee(coffee.getCoffee());
+			consumptionOfMilk(coffee.getMilk());
+			return drink;
+		} else {
+			throw new RuntimeException("Alarma!!!");
+		}
 	}
+
 
 	public boolean checkEnoughIngredients(CoffeeType coffee) {
 		if (levelWater < coffee.getWater()) {
