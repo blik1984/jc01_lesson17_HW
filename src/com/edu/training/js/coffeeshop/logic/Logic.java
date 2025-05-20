@@ -20,9 +20,6 @@ public class Logic {
 
 		if (machina.checkEnoughIngredients(coffeeType)) {
 			Drink drink = machina.makeDrink(coffeeType);
-			machina.consumptionOfWater(coffeeType.getWater());
-			machina.consumptionOfCoffee(coffeeType.getCoffee());
-			machina.consumptionOfMilk(coffeeType.getMilk());
 			return true;
 		}
 		return false;
